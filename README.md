@@ -3,7 +3,7 @@
 
 
 In this project, we embark on an exciting journey to build an end-to-end pipeline based on NASA Airfoil Self Noise  dataset.
-Our cutting-edge pipeline will seamlessly integrate several state-of-the-art technologies, creating a harmonious symphony of data processing and machine learning. AWS Glue,a serverless extract-transform-load (ETL) service,will orchestrate the data flow,ensuring efficient and reliable data transformations. Amazon SageMaker based on EMR cluster will be used to train and deploy sophisticated predictive models.
+Our cutting-edge pipeline will seamlessly integrate several state-of-the-art technologies, creating a harmonious symphony of data processing and machine learning. AWS Glue,a serverless extract-transform-load (ETL) service will be used to orchestrate the data flow, ensuring efficient and reliable data transformations. Amazon SageMaker based on EMR cluster will be used to train and deploy sophisticated predictive models.
 
 
 
@@ -19,7 +19,11 @@ Before Starting this guide, you will need:
 
 
 ## Use case and problem statement
-A data engineer at an aeronautics consulting company. The company prides itself in being able to efficiently design airfoils for use in planes and sports cars. Data scientists in the office need to work with different algorithms and data in different formats. While they are good at Machine Learning, they count on data engineer to be able to do ETL jobs and build ML pipelines. In this project we will use the modified version of the NASA Airfoil Self Noise dataset. The dataset will be used, by dropping the duplicate rows, removing the rows with null values and building an ML pipeline to create a model that will predict the SoundLevel based on all the other columns. You will evaluate the model and towards the end you will persist the model.
+A data engineer at an aeronautics consulting company need to build data pipeline for data scientist team. The company prides itself in being able to efficiently design airfoils for use in planes and sports cars. Data scientists in the office need to work with different algorithms and data in different formats. While they are good at Machine Learning, they count on data engineer to be able to do ETL jobs and build ML pipelines. 
+
+In this project we will use the modified version of the NASA Airfoil Self Noise dataset. The dataset will be used, by dropping the duplicate rows, removing the rows with null values and building an ML pipeline to create a model that will predict the SoundLevel based on all the other columns. In the end the model will be evaluated and persisted into amazon s3 bucket for ready deployment.
+
+
 
 
 Table of Contents
@@ -43,7 +47,7 @@ Table of Contents
 
 ## Architecture
 
-To implement this data pipeline, we will use a provided CloudFormation [here in us-east-1](https://signin.aws.amazon.com/oauth?response_type=code&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcloudformation&redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fcloudformation%2Fhome%3FhashArgs%3D%2523%252Fstacks%252Fquickcreate%253FtemplateURL%253Dhttps%253A%252F%252Faws-blogs-artifacts-public.s3.amazonaws.com%252Fartifacts%252Fastra-m4-sagemaker%252Fend-to-end%252FCFN-SagemakerEMRNoAuthProductWithStudio-v3.yaml%26isauthcode%3Dtrue%26region%3Dus-east-1%26state%3DhashArgsFromTB_us-east-1_38a85d8762d46787&forceMobileLayout=0&forceMobileApp=0&code_challenge=BD80NtJoAbVeJGKadtNpkbbK23cbGz4pViZcZg4n398&code_challenge_method=SHA-256/) 
+To implement this data pipeline, we will use a provided CloudFormation [here in us-east-1](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://aws-blogs-artifacts-public.s3.amazonaws.com/artifacts/astra-m4-sagemaker/end-to-end/CFN-SagemakerEMRNoAuthProductWithStudio-v3.yaml) 
  with [Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html) which is the first fully integrated development environment (IDE) for machine learning (ML)It provides a single,web-based visual interface where we can perform all ML development steps, including preparing data,training,and deploying models.And some resources such as networking, EMR clusters. And we are going to use Aws Glue to perform ETL the input and unprocessed data  and store the result in Amazon S3 Bucket.
 
 
