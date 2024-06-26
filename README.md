@@ -69,3 +69,63 @@ Make sure you are in us-east-1 region in your aws management console and click o
 Just give a name to the stack and create the stack as below.
 
 <img src="images/Created-stack.png" > 
+
+## 4. Create Glue job and data Catalog.
+ From aws management console nivigate to `aws glue`.
+ Create jobs by using visual ETL as below.
+
+
+<img src="images/glue-1.png" > 
+
+
+<br/>
+
+Create glue ETL by selecting the features to be used.
+
+
+
+<img src="images/glue-ETL-01.gif" > 
+
+Create glue catalog for data to be analyzed using athena as below
+
+<img src="images/glue-catalog.gif" >
+
+After completing all jobs , in final data sub folder in S3, bucket we can verify our data in parquet format as below.
+
+<img src="images/parquet-in-S3.png" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+TO BE CONTINUED ...
+
+
+
+
+## 9. Appendix 
+
+
+1. [Create and manage Amazon EMR Clusters from SageMaker Studio to run interactive Spark and ML workloads – Part 1](https://aws.amazon.com/blogs/machine-learning/part-1-create-and-manage-amazon-emr-clusters-from-sagemaker-studio-to-run-interactive-spark-and-ml-workloads/)
+2. [Discover Amazon EMR clusters from SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/discover-emr-clusters.html)
+3. 
