@@ -28,27 +28,44 @@ In this project we will use the modified version of the NASA Airfoil Self Noise 
 
 Table of Contents
 =================
+[1. Project architecture](#project-architecture)
 
-[1. Create S3 buckets ](#create-s3-buckets)
+[2. Create S3 buckets ](#create-s3-buckets)
 
-[2. Create Glue job for extracting and storing raw data including data Catalog](#create-glue-job-for-extracting-and-storing-raw-data)
+[3. Create sageMaker-EMR cluster ](#create-sageMaker-EMR-cluster)
 
-[3. Automate the data processing pipeline using Glue Workflow ](#automate-the-data-processing-pipeline-using-glue-workflowoptional)
+[4. Create Glue job for extracting and storing raw data including data Catalog](#create-glue-job-for-extracting-and-storing-raw-data)
 
-[4. Analyze Raw Data using Athena ](#analyze-raw-data-using-athena.)
+[5. Automate the data processing pipeline using Glue Workflow ](#automate-the-data-processing-pipeline-using-glue-workflowoptional)
 
-[5. Machine Learning  ](#machine-learning)
+[6. Analyze Raw Data using Athena ](#analyze-raw-data-using-athena.)
 
-
-[6. Conclusion ](#conclusion)
-
-[7. Appendix ](#appendix)
+[7. Machine Learning  ](#machine-learning)
 
 
-## Architecture
+[8. Conclusion ](#conclusion)
 
-To implement this data pipeline, we will use a provided CloudFormation [here in us-east-1](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://aws-blogs-artifacts-public.s3.amazonaws.com/artifacts/astra-m4-sagemaker/end-to-end/CFN-SagemakerEMRNoAuthProductWithStudio-v3.yaml) 
- with [Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html) which is the first fully integrated development environment (IDE) for machine learning (ML)It provides a single,web-based visual interface where we can perform all ML development steps, including preparing data,training,and deploying models.And some resources such as networking, EMR clusters. And we are going to use Aws Glue to perform ETL the input and unprocessed data  and store the result in Amazon S3 Bucket.
+[9. Appendix ](#appendix)
+
+
+## 1. Architecture
+
+To implement this data pipeline, we will use a provided CloudFormation `in us-east-1` [here ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://aws-blogs-artifacts-public.s3.amazonaws.com/artifacts/astra-m4-sagemaker/end-to-end/CFN-SagemakerEMRNoAuthProductWithStudio-v3.yaml) 
+ with `Amazon SageMaker Studio` which is the first fully integrated development environment (IDE) for machine learning (ML). It provides a single,web-based visual interface where we can perform all ML development steps, including preparing data,training and deploying models. And some resources such as networking, EMR clusters are included in provided template. We are going to use Aws Glue to perform ETL the input and unprocessed data  and store the result in Amazon S3 Bucket.
 
 
 <img src="images/predicting-Nasa-airfoil-architure.gif" > 
+
+
+## 2. Create S3 buckets*
+
+From aws console, create bucket and give the name `ml-project01` as below and create inside the bucket 3 sub-folders named `app` , `athena-results` and `final-data`
+
+<img src="images/create-bucket.png" > 
+
+## 3. Create sageMaker-EMR cluster
+
+Make sure you are in us-east-1 region in your aws management console and click on provided templated to create sageMaker-EMR cluster and other ressources such networks, service role, ...
+Just give a name to the stack and create the stack as below.
+
+<img src="images/Created-stack.png" > 
