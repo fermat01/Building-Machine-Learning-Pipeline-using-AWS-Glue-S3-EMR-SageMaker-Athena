@@ -13,7 +13,7 @@ Our cutting-edge pipeline will seamlessly integrate several state-of-the-art tec
 Before Starting this guide, you will need:
 
 - An AWS account (if you don't yet have one, please create one and [set up your environment](https://aws.amazon.com/getting-started/guides/setup-environment/))
-- An IAM user that has the access and create AWS resources.
+- An IAM user that has the access to create AWS resources.
 - Provided CloudFormation template
 - Basic understanding of Python and apache spark 
 
