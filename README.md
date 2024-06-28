@@ -1,4 +1,12 @@
 # Machine-Learning-Pipeline-using-AWS-Glue-S3-EMR-SageMaker-Athena
+
+![GitHub](https://img.shields.io/github/license/fermat01/Machine-Learning-Pipeline-using-AWS-Glue-S3-EMR-SageMaker-Athena?style=flat)
+![GitHub top language](https://img.shields.io/github/languages/top/fermat01/Machine-Learning-Pipeline-using-AWS-Glue-S3-EMR-SageMaker-Athena?style=flat)
+![GitHub language count](https://img.shields.io/github/languages/count/fermat01/Machine-Learning-Pipeline-using-AWS-Glue-S3-EMR-SageMaker-Athena?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/fermat01/Machine-Learning-Pipeline-using-AWS-Glue-S3-EMR-SageMaker-Athena?style=flat)
+![ViewCount](https://views.whatilearened.today/views/github/fermat01/Machine-Learning-Pipeline-using-AWS-Glue-S3-EMR-SageMaker-Athena.svg?cache=remove) 
+
+ 
  Build an end-to-end Machine Learning pipeline using AWS Glue, Amazon S3, Amazon EMR Amazon SageMaker and Amazon Athena
 
 
