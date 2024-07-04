@@ -65,7 +65,7 @@ To implement this data pipeline, we will use a provided CloudFormation `in us-ea
 <img src="images/predicting-Nasa-airfoil-architure.gif" > 
 
 
-## 2. Create S3 buckets*
+## 2. Create S3 buckets
 
 From aws console, create bucket and give the name `ml-project01` as below and create inside the bucket 3 sub-folders named `app` , `athena-results` and `final-data`
 
