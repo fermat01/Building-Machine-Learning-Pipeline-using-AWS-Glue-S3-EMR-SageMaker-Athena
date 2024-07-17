@@ -33,8 +33,6 @@ A data engineer at an aeronautics consulting company need to build data pipeline
 In this project we will use the modified version of the NASA Airfoil Self Noise dataset. The dataset will be used, by dropping the duplicate rows, removing the rows with null values and building an ML pipeline to create a model that will predict the SoundLevel based on all the other columns. In the end the model will be evaluated and persisted into amazon s3 bucket for ready deployment.
 
 
-
-
 Table of Contents
 =================
 [1. Project architecture](#project-architecture)
@@ -45,12 +43,11 @@ Table of Contents
 
 [4. Create Glue job for extracting and storing raw data including data Catalog](#create-glue-job-for-extracting-and-storing-raw-data)
 
-[5. Automate the data processing pipeline using Glue Workflow ](#automate-the-data-processing-pipeline-using-glue-workflowoptional)
+[5. Analyze Raw Data using Athena ](#Analyze-Raw-Data-using-Athena)
 
-[6. Analyze Raw Data using Athena ](#analyze-raw-data-using-athena.)
+[6. Machine Learning  ](#machine-learning)
 
-[7. Machine Learning  ](#machine-learning)
-
+[7. Machine Learning  model persistence ](#machine-learning-model-persitence)
 
 [8. Conclusion ](#conclusion)
 
@@ -80,12 +77,19 @@ Just give a name to the stack and create the stack as below.
 <img src="images/Created-stack.png" > 
 
 ## 4. Create Glue job and data Catalog.
+
+**Create a Role for Glue to have proper permissions**
+1. Click on IAM from the list of all services. This will bring you to the IAM dashboard page.
+2. Click Roles on the left hand panel and then click Create role
+3. Select Glue
+   
+<br>
+
  From aws management console nivigate to `aws glue`.
  Create jobs by using visual ETL as below.
 
 
 <img src="images/glue-1.png" > 
-
 
 <br/>
 
@@ -95,7 +99,14 @@ Create glue ETL by selecting the features to be used.
 
 <img src="images/glue-ETL-01.gif" > 
 
+Automate the data processing pipeline using Glue Workflow
+
+<img src="images/final-glue-etl.png" >
+
+
 Create glue catalog for data to be analyzed using athena as below
+
+<br>
 
 <img src="images/glue-catalog.gif" >
 
@@ -104,14 +115,56 @@ After completing all jobs , in final data sub folder in S3, bucket we can verify
 <img src="images/parquet-in-S3.png" >
 
 
+## 5. Analyze Raw Data using Athena
+From AWS Management Console. Click on Athena from the list of all services. This will bring you to the Amazon Athena dashboard page.
+Use the code below  to analyze data.
+
+``SELECT * FROM "airfoil_project_table"."airfoil_project01" limit 5;``
+
+
+## 6  Machine Learning 
+
+In aws management console, open sageMaker and go to sageMaker Domain.
+We can see that our Studio domain has been created.
+
+**Start the notebook and kernel** 
+
+Just click on domain name to open the studio.
+In Studio, choose the File menu, then choose New and Notebook and select the SparkMagic Image and PySpark kernel. 
+
+
+<img src="images/final-notebook.png" >
 
 
 
+##  7. Machine Learning  model persistence
+
+Model persistence is the ability to save and load the machine learning model. It is desirable to have a way to persist the model for future use without having to retrain.
 
 
 
+<br>
 
 
+**Clean up the end-to-end stack**
+
+After completing the following steps to clean up the resources deployed for this solution:
+
+1. Delete your EMR cluster, as shown in the previous section.
+2. On the Studio console, choose your user name .
+3. Delete all the apps listed under Apps by choosing Delete app.
+4. Wait until the status shows as Completed.
+Next, you delete your Amazon Elastic File System (Amazon EFS) volume associated with domain provisioned.
+
+5. On the Amazon EFS console, delete the file system that SageMaker created.
+You can confirm it’s the correct volume by choosing the file system ID and confirming the tag is `ManagedByAmazonSageMakerResource`
+
+
+Finally, you delete the CloudFormation template.
+
+6. On the AWS CloudFormation console, choose Stacks.
+7. Select the stack you deployed for this solution.
+Choose Delete.
 
 
 
@@ -129,7 +182,7 @@ After completing all jobs , in final data sub folder in S3, bucket we can verify
 
 TO BE CONTINUED ...
 
-
+## 8. Conclusion
 
 
 ## 9. Appendix 
