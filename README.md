@@ -146,6 +146,25 @@ Model persistence is the ability to save and load the machine learning model. It
 <br>
 
 
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+TO BE CONTINUED ...
+
+## 8. Conclusion
+
+
 **Clean up the end-to-end stack**
 
 After completing the following steps to clean up the resources deployed for this solution:
@@ -167,23 +186,7 @@ Finally, you delete the CloudFormation template.
 Choose Delete.
 
 
-
-
-
-
-
-
-
-
-
-
 <br>
-
-
-TO BE CONTINUED ...
-
-## 8. Conclusion
-
 
 ## 9. Appendix 
 
